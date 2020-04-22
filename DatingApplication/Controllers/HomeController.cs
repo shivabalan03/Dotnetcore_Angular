@@ -48,6 +48,11 @@ namespace DatingApplication.Controllers
             return Ok(values);
         }
 
+        public async Task<IActionResult> getStudentData(){
+            var students = await _Context.Customers.ToListAsync();
+            return Ok(students);
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUserData(int id)
         {
