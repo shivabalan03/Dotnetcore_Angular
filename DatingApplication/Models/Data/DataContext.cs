@@ -8,5 +8,6 @@ namespace DatingApplication.Models.Data
 
       public DbSet<Customer> Customers {get;set;}
       public DbSet<Users> Users { get; set; }
+      public DbSet<Photos> Photos {get;set;}
     }
 }

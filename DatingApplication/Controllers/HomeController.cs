@@ -27,6 +27,7 @@ namespace DatingApplication.Controllers
         public IActionResult Index()
         {
             var values = _Context.Customers.ToList();
+            seed.SeedUserData(_Context);
             return Ok(values);
         }
 

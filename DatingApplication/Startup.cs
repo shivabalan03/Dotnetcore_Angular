@@ -16,6 +16,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Net;
 using Microsoft.AspNetCore.Diagnostics;
 using DatingApplication.Helpers;
+using AutoMapper;
 
 namespace DatingApplication
 {
@@ -41,7 +42,9 @@ namespace DatingApplication
             services.AddDbContext<DataContext>(options => options.UseSqlServer("Server=.;Database=App1;user id=sa;password=Password1"));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddCors();
+            services.AddAutoMapper(typeof(DatingRepository).Assembly);
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IDatingRepository, DatingRepository>();
             //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             // .AddJwtBearer(options => {
             //     options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
